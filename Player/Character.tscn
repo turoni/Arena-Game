@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvte2tedut0hm"]
+
+[ext_resource type="Script" path="res://Player/Character.gd" id="1_pt5ji"]
+[ext_resource type="Texture2D" uid="uid://bjslrkrwvyxbi" path="res://icon.svg" id="2_w25gv"]
+[ext_resource type="Script" path="res://Components/move_input_component.gd" id="3_kg0w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veu5i"]
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("move_input")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_pt5ji")
+move_input = NodePath("MoveInputComponent")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_w25gv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_veu5i")
+
+[node name="MoveInputComponent" type="Node" parent="."]
+script = ExtResource("3_kg0w2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shooting_point" type="Marker2D" parent="."]
